@@ -19,28 +19,28 @@ export const MoviesList = ({ movies }) => {
 export const NoMovies = () => {
   return (
     <div className="flex justify-center text-white">
-      <div class="max-w-md text-center">
+      <div className="max-w-md text-center">
         <svg
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
-          class="mx-auto size-20 text-[#FFB4AA]"
+          className="mx-auto size-20 text-[#FFB4AA]"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
           />
         </svg>
 
-        <h2 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white">
+        <h2 className="mt-6 text-2xl font-bold text-gray-900 dark:text-white">
           No hay películas
         </h2>
 
-        <p class="mt-4 text-pretty text-gray-700 dark:text-gray-200">
+        <p className="mt-4 text-pretty text-gray-700 dark:text-gray-200">
           Comienza ingresando el nombre de una película.
         </p>
       </div>
