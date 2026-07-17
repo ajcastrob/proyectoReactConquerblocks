@@ -3,20 +3,23 @@ import { AppMovie } from "./pages/AppMovie";
 import { Favorites } from "./pages/Favorites";
 import { Routes, Route } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
+import { MovieProvider } from "./context/MovieContext";
 
 function App() {
   return (
-    <div className="mx-auto max-w-5xl">
-      <Header />
+    <MovieProvider>
+      <div className="mx-auto max-w-5xl">
+        <Header />
 
-      <div>
-        <Routes>
-          <Route path="/" element={<AppMovie />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/favorites" element={<Favorites />} />
-        </Routes>
+        <div>
+          <Routes>
+            <Route path="/" element={<AppMovie />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/favorites" element={<Favorites />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </MovieProvider>
   );
 }
 

@@ -1,20 +1,16 @@
 import { useState } from "react";
 import notMovieFound from "../../assets/image-not-moviefound.png";
+import { useMovieContext } from "../../context/MovieContext";
 
 const FALLBACK_POSTER = notMovieFound;
 
-export const MovieCard = ({
-  onToggleFavorite,
-  id,
-  title,
-  year,
-  image,
-  isFavorite,
-}) => {
+export const MovieCard = ({ id, title, year, image }) => {
   const [imgSrc, setImgSrc] = useState(image || FALLBACK_POSTER);
+  const { favorites, toggleFavorite } = useMovieContext();
+  const isFavorite = favorites.some((m) => m.id === id);
 
   const handleToggleFavorite = () => {
-    onToggleFavorite({ id, title, year, image });
+    toggleFavorite({ id, title, year, image });
   };
 
   return (
@@ -31,10 +27,10 @@ export const MovieCard = ({
       <div className="absolute right-3 top-3 flex items-center gap-1 rounded-lg bg-[#353535]/60 px-2 py-1 backdrop-blur-md">
         <button
           onClick={handleToggleFavorite}
-          className="p-1 hover:text-red-50"
+          className="p-1 hover:text-red-100"
         >
           <i
-            className={`${isFavorite ? "ri-heart-fill" : "ri-heart-line"} text-xs leading-none text-red-50`}
+            className={`${isFavorite ? "ri-heart-fill" : "ri-heart-line"} text-xs leading-none text-red-100`}
           ></i>
         </button>
       </div>

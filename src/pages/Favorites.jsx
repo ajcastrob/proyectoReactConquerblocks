@@ -1,9 +1,9 @@
 import { MovieCard } from "../components/MovieCard/MovieCard";
 import { NoMovies } from "../components/Movies/Movies";
-import { useFavoriteMovies } from "../Hooks/useFavoriteMovies";
+import { useMovieContext } from "../context/MovieContext";
 
 export const Favorites = () => {
-  const { favorites, toggleFavorite } = useFavoriteMovies();
+  const { favorites } = useMovieContext();
   const lenMovies = favorites?.filter((movie) => movie.title).length ?? 0;
   const hasFavorites = lenMovies > 0;
 
@@ -22,8 +22,6 @@ export const Favorites = () => {
         <section className="grid grid-cols-2 gap-3 p-6 md:grid-cols-3 lg:grid-cols-4">
           {favorites.map((movie) => (
             <MovieCard
-              isFavorite={favorites.some((m) => m.id === movie.id)}
-              onToggleFavorite={toggleFavorite}
               key={movie.id}
               id={movie.id}
               title={movie.title}

@@ -1,15 +1,10 @@
 import { MovieCard } from "../MovieCard/MovieCard";
-import { useFavoriteMovies } from "../../Hooks/useFavoriteMovies";
 
 export const MoviesList = ({ movies }) => {
-  const { favorites, toggleFavorite } = useFavoriteMovies();
-
   return (
     <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-6  gap-3">
       {movies.map((movie) => (
         <MovieCard
-          isFavorite={favorites.some((m) => m.id === movie.id)}
-          onToggleFavorite={toggleFavorite}
           key={movie.id}
           id={movie.id}
           title={movie.title}
