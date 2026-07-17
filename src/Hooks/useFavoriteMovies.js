@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getStoredFavorites } from "../utils/getStoredFavorites";
+import { getStoredFavorites } from "../utils/getStoredFavorites.js";
 
 export const useFavoriteMovies = () => {
   const [favorites, setFavorites] = useState(getStoredFavorites);
