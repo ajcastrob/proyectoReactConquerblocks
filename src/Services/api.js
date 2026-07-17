@@ -1,7 +1,7 @@
 export const searchMovies = async ({ query }) => {
   try {
     const response = await fetch(
-      `http://www.omdbapi.com/?apikey=bd5ae4df&s=${query}`,
+      `https://www.omdbapi.com/?apikey=bd5ae4df&s=${query}`,
     );
 
     const data = await response.json();
